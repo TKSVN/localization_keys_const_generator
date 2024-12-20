@@ -14,3 +14,7 @@
 - #19: Incorrect import cause compile error in example/lib/main.dart
 - #20: Add image and company url into README.md
 - #21: Miss-typing in name of config file in pub.dev guideline
+
+## 1.0.3
+
+- #29: Update url of flow image to use absolute URL instead of a relative one
