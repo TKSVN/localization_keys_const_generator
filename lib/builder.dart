@@ -53,6 +53,18 @@ class ConstantKeysGenerator implements Builder {
     final fileNameWithoutExt = getFileNameWithoutExtension(config.outputFile);
     final className = config.className ?? snakeToPascalCase(fileNameWithoutExt);
 
+    // Add DO NOT EDIT comment
+    buffer.writeln(
+'''
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// *****************************************************
+//  TKS Vietnam - constant_keys_generator
+// *****************************************************
+'''
+    );
+
     // Ignore class name warning
     buffer.writeln('// ignore_for_file: camel_case_types');
 
