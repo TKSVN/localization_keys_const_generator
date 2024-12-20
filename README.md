@@ -11,11 +11,20 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-A Flutter Dart library to generate a Dart file containing String constants representing the JSON path of a given JSON or YAML file (not supported yet :D). This tool helps developers manage JSON paths as constants in their Flutter projects. 
+<img src="https://tks.asia/wp-content/uploads/2022/01/logo-1024x337.png" alt="drawing" width="200"/>
+
+---
+
+# Constant keys generator
+
+![Flow](docs/images/flow.png)
+
+
+A Flutter Dart library to generate a Dart file containing String constants representing the JSON path of a given JSON or YAML file. This tool helps developers manage JSON paths as constants in their Flutter projects.
 
 ## Features
 
-- Input File: Accepts JSON or YAML (not supported yet :D) file as input.
+- Input File: Accepts JSON or YAML file as input.
 - Output File: Generates a Dart file containing String constants for all paths in the input file.
 - Ease of Use: Running with `build_runner` build command
 - Flutter-Compatible: Perfect for Flutter projects needing structured JSON path management.
@@ -32,7 +41,7 @@ flutter pub add --dev constant_keys_generator
 
 ### 1. Setup the configuration file
 
-Create your own yaml setting file named `constant_key_generator.yaml` in the root folder of your project
+Create your own yaml setting file named `constant_keys_generator.yaml` in the root folder of your project
 
 ```yaml
 constant_keys_generator:
@@ -48,7 +57,7 @@ constant_keys_generator:
       output_file: "locale_keys"
 ```
 
-OR
+*OR*
 
 Add your configuration into `pubspec.yaml`
 
@@ -160,9 +169,15 @@ static const Map<String, Map<String,dynamic>> mapLocales = {"ja": ja, "en": en, 
 
 Therefore, we developed this library as an alternative solution for generating type-safe keys for libraries like `easy_localization`.
 
-Generated file
-```yaml
-// ignore_for_file: camel_case_types
+*Generated file* from generator
+```dart
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// *****************************************************
+//  TKS Vietnam - constant_keys_generator
+// *****************************************************
+
 class _LocaleKeys_Common {
   final String appName = 'common.appName';
   _LocaleKeys_Common();

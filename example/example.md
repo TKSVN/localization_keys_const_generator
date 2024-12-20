@@ -3,7 +3,9 @@
 ## Prepare json files
 
 [assets/translations/en.json](assets/translations/en.json)
+
 [assets/translations/vi.json](assets/translations/vi.json)
+
 [assets/translations/ja.json](assets/translations/ja.json)
 
 ## Update `pubspec.yaml`
