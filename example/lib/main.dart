@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:example/generated/constant_keys/locale_keys.dart';
+import 'package:example/generated/constant_keys/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -8,11 +8,10 @@ void main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: const [Locale('en'), Locale('ja'), Locale('vi')],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('en'),
-      child: const MyApp()
-    ),
+        supportedLocales: const [Locale('en'), Locale('ja'), Locale('vi')],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('en'),
+        child: const MyApp()),
   );
 }
 
@@ -28,6 +27,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      locale: context.locale,
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
       home: MyHomePage(title: tr(LocaleKeys.common.appName)),
     );
   }
