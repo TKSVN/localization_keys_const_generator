@@ -17,7 +17,7 @@ and the Flutter guide for
 
 # Constant keys generator
 
-![Flow](doc/images/flow.png)
+![Flow](https://raw.githubusercontent.com/TKSVN/constant_keys_generator/refs/heads/main/doc/images/flow.png)
 
 
 A Flutter Dart library to generate a Dart file containing String constants representing the JSON path of a given JSON or YAML file. This tool helps developers manage JSON paths as constants in their Flutter projects.
