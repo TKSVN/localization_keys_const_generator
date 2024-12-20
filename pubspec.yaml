@@ -1,6 +1,6 @@
 name: constant_keys_generator
 description: A genarator for create constant keys file from json file.
-version: 1.0.2
+version: 1.0.3
 repository: https://github.com/TKSVN/constant_keys_generator
 issue_tracker: https://github.com/TKSVN/constant_keys_generator/issues
 
