@@ -70,6 +70,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/translations/
+    - assets/yaml/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -101,3 +102,5 @@ constant_keys_generator:
   file_configs:
     - input_file: "assets/translations/*.json"
       output_file: "locale_keys"
+    - input_file: "assets/yaml/*.yaml"
+      output_file: "config"
