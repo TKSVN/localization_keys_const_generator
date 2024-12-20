@@ -6,6 +6,7 @@ import 'package:build/build.dart';
 import 'package:constant_keys_generator/builder_config.dart';
 import 'package:constant_keys_generator/file_config.dart';
 import 'package:constant_keys_generator/util.dart';
+import 'package:constant_keys_generator/yaml_util.dart';
 import 'dart:convert';
 
 import 'package:glob/glob.dart';
@@ -42,7 +43,20 @@ class ConstantKeysGenerator implements Builder {
     final Map<String, dynamic> allTranslations = {};
     await for (final id in inputFiles) {
       final content = await buildStep.readAsString(id);
-      final json = jsonDecode(content) as Map<String, dynamic>;
+      Map<String, dynamic>? json;
+      
+      switch (id.extension) {
+        case '.json':
+          json = jsonDecode(content) as Map<String, dynamic>;
+        case '.yaml':
+          json = yamlMapToMap(loadYaml(content) as YamlMap);
+      }
+
+      if (json == null) {
+        log.warning('${id.path} file is not supported. File type is ${id.extension}');
+        continue;
+      }
+
       allTranslations.addAll(json);
     }
 
@@ -52,6 +66,18 @@ class ConstantKeysGenerator implements Builder {
     // Extract output file's name (without extenstion)
     final fileNameWithoutExt = getFileNameWithoutExtension(config.outputFile);
     final className = config.className ?? snakeToPascalCase(fileNameWithoutExt);
+
+    // Add DO NOT EDIT comment
+    buffer.writeln(
+'''
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// *****************************************************
+//  TKS Vietnam - constant_keys_generator
+// *****************************************************
+'''
+    );
 
     // Ignore class name warning
     buffer.writeln('// ignore_for_file: camel_case_types');
