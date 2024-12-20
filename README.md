@@ -17,7 +17,7 @@ and the Flutter guide for
 
 # Constant keys generator
 
-![Flow](docs/images/flow.png)
+![Flow](doc/images/flow.png)
 
 
 A Flutter Dart library to generate a Dart file containing String constants representing the JSON path of a given JSON or YAML file. This tool helps developers manage JSON paths as constants in their Flutter projects.
@@ -170,6 +170,7 @@ static const Map<String, Map<String,dynamic>> mapLocales = {"ja": ja, "en": en, 
 Therefore, we developed this library as an alternative solution for generating type-safe keys for libraries like `easy_localization`.
 
 *Generated file* from generator
+
 ```dart
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
