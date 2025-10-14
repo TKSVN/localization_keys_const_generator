@@ -18,3 +18,7 @@
 ## 1.0.3
 
 - #29: Update url of flow image to use absolute URL instead of a relative one
+
+## 1.0.4
+
+- #36: Set minium version of supported SDK to 2.12
