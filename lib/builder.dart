@@ -48,8 +48,10 @@ class ConstantKeysGenerator implements Builder {
       switch (id.extension) {
         case '.json':
           json = jsonDecode(content) as Map<String, dynamic>;
+          break;
         case '.yaml':
           json = yamlMapToMap(loadYaml(content) as YamlMap);
+          break;
       }
 
       if (json == null) {
